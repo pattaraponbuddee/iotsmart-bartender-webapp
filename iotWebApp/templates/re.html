@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Orelega+One&display=swap" rel="stylesheet"> -->
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Orelega+One&family=Passion+One:wght@400;700&family=Titan+One&display=swap" rel="stylesheet">    -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Luckiest+Guy&family=Orelega+One&family=Passion+One:wght@400;700&family=Paytone+One&family=Titan+One&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        }
+
+        html {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        body {
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: top;
+            /* background-image: url(https://images.unsplash.com/photo-1492252719637-c7b68468489b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80); */
+            width: 100%;
+            height: 100%;
+            font-family: Arial, Helvetica, sans-serif;
+            letter-spacing: 0.02em;
+            font-weight: 400;
+            background: -webkit-linear-gradient(left top,  #d60056, #04005E);
+            background: -o-linear-gradient(bottom right,  #d60056, #04005E); 
+            background: -moz-linear-gradient(bottom right, #d60056, #04005E); 
+            background: linear-gradient(to bottom right,  #d60056, #04005E); 
+            /* background-image: url("https://c.wallhere.com/photos/1f/3e/cigars_glasses_whiskey_alcohol-245571.jpg!d"); */
+            /* background-image: url("https://wallpapersgood.com.de/resize/1920x1080/wallpapers/main/201522/d281aa1c8646382.jpg"); */
+            /* background-image: url("https://cdn.wallpapersafari.com/72/36/Uwsmri.jpg"); */
+            /* background-image: url("https://www.coqtailmilano.com/wp-content/uploads/2019/11/Liquori-e-Distillati-le-differenze-Coqtail-Milano.jpg"); */
+            font-family: 'Paytone One', sans-serif;
+        }
+        .user-box {
+          position: absolute;
+          width: 497px;
+          height: 588px;
+          left: 300px;
+          top: 100px;
+
+          background: #F2ECEC;
+          opacity: 0.1;
+          border: 4px solid #838383;
+          border-radius: 10px;
+        }
+        .user-login {
+          position: absolute;
+          width: 147px;
+          height: 56px;
+          left: 331px;
+          top: 112px;
+
+            /* font-family: 'Orelega One', cursive; */
+            /* font-family: 'Luckiest Guy', cursive; */
+            /* font-family: 'Paytone One', sans-serif; */
+            /* font-family: 'Titan One', cursive; */
+            font-style: normal;
+            font-weight: normal;
+            font-size: 50px;
+            line-height: 70px;
+            /* identical to box height */
+
+
+            color: #FFFFFF;
+        }
+        .user-Username {
+          position: absolute;
+          width: 416px;
+          height: 61px;
+          left: 341px;
+          top: 197px;
+
+          background: #FFFCFC;
+          border: 2px solid #767676;
+          box-sizing: border-box;
+          border-radius: 10px;
+        }
+        .user-tel {
+          position: absolute;
+          width: 416px;
+          height: 61px;
+          left: 341px;
+          top: 279px;
+
+          background: #FFFCFC;
+          border: 2px solid #767676;
+          box-sizing: border-box;
+          border-radius: 10px;
+        }
+        .user-email {
+          position: absolute;
+          width: 416px;
+          height: 61px;
+          left: 341px;
+          top: 361px;
+
+          background: #FFFCFC;
+          border: 2px solid #767676;
+          box-sizing: border-box;
+          border-radius: 10px;
+        }
+        .user-pw {
+          position: absolute;
+          width: 416px;
+          height: 61px;
+          left: 341px;
+          top: 443px;
+
+          background: #FFFCFC;
+          border: 2px solid #767676;
+          box-sizing: border-box;
+          border-radius: 10px;
+        }
+        .user-Cpw {
+          position: absolute;
+          width: 416px;
+          height: 61px;
+          left: 341px;
+          top: 525px;
+
+          background: #FFFCFC;
+          border: 2px solid #767676;
+          box-sizing: border-box;
+          border-radius: 10px;
+        }
+        .user-button-signup {
+            position: absolute;
+            width: 416px;
+            height: 61px;
+            left: 570px;
+            top: 566px;
+
+            background: #0F2135;
+            border-radius: 10px;
+        }
+        .user-button-signup-f {
+          position: absolute;
+          width: 416px;
+          height: 61px;
+          left: 341px;
+          top: 612px;
+
+          background: #0F2135;
+          border-radius: 10px;
+          color: #FFFFFF;
+        }
+        .user-link-signup{
+            position: absolute;
+            width: 735px;
+            height: 41px;
+            left: 539px;
+            top: 664px;
+
+            font-family: Paytone One;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 22px;
+            line-height: 31px;
+
+            color: #FFFFFF;
+
+            opacity: 0.6;
+        }
+        input[type=text], input[type=password], input[type=tel], input[type=email] {
+            /* width: 100%; */
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+    </style>
+</head>
+<body>
+  <form method="POST">
+    <div class="user-box"></div>
+    <div class="user-login">Signup</div>
+    <input class="user-Username" type="text" placeholder="Username" name="uname" required></input>
+    <input class="user-tel" type="tel" placeholder="Telephone number" id="phone" name="phone" placeholder="123-45-678" required></input>
+    <input class="user-email" type="email" id="email" name="email" placeholder="E - mail address" required></input>
+    <input class="user-pw" type="password" placeholder="Password" name="psw" required></input>
+    <input class="user-Cpw" type="password" placeholder="Confirm password" name="psw" required></input>
+    <button class="user-button-signup user-button-signup-f" type="submit"><b class="">Sign In</b></button>
+    <!-- <div class="user-link-signup">Don't have account? <a href="" style="color: #FFD200"><b> Signup Now</b></a></div> -->
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+</body>
+</html>

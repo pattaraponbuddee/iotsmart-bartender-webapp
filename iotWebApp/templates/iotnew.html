@@ -1,0 +1,608 @@
+<html lang="en">
+        <head>
+            <meta charset="utf-8">
+            <title>Menu</title>
+            <meta name="description" content="Figma htmlGenerator">
+            <meta name="author" content="htmlGenerator">
+            <meta name="viewport" content="width=1080px, height=2280px">
+            <link href="https://fonts.googleapis.com/css?family=Baloo&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">            
+
+            <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+            <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+            <scrip src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+            <link rel="stylesheet" href="/path/to/cdn/bootstrap.min.css" />
+            <link rel="stylesheet" href="/path/to/bootstrap-steps.min.css" />
+
+            <scrip src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></scrip>
+            <scrip src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></scrip>
+
+
+            
+           
+
+            <style>
+                .flex-container {
+                    display: flex;
+                    background-color: DodgerBlue;
+                    height : 100% ;
+                    flex-direction:column;
+                }
+                #tab {
+                    display: flex;
+                    background-color: #0c1428;
+                    width: 100%;
+                    height: 10%;
+                    text-align: right;
+                    flex-direction:  row; 
+                }
+                #block {
+                    display: flex;
+                    background-color: rgb(245,245,245);
+                    width: 100%;
+                    height: 90%;
+                    flex-direction: column;
+                }
+                .popup .overlay {
+                position:fixed;
+                top:0px;
+                left:0px;
+                width:100vw;
+                height:100vh;
+                background:rgba(0,0,0,0.7);
+                z-index:1;
+                display:none;
+                }
+                
+                .popup .content {
+                position:absolute;
+                top:50%;
+                left:50%;
+                transform:translate(-50%,-50%) scale(0);
+                background:#fff;
+                width:400px;
+                height:450px;
+                z-index:2;
+                text-align:center;
+                padding:20px;
+                box-sizing:border-box;
+                font-family:"Open Sans",sans-serif;
+                }
+                
+                .popup .close-btn {
+                cursor:pointer;
+                position:absolute;
+                right:20px;
+                top:20px;
+                width:30px;
+                height:30px;
+                background:#222;
+                color:#fff;
+                font-size:25px;
+                font-weight:600;
+                line-height:30px;
+                text-align:center;
+                border-radius:50%;
+                }
+                
+                .popup.active .overlay {
+                display:block;
+                }
+                
+                .popup.active .content {
+                transition:all 300ms ease-in-out;
+                transform:translate(-50%,-50%) scale(1);
+                }
+            </style>
+          
+        </head>
+          
+        <body>
+            <div class="flex-container">
+                <div id="tab">
+                    <div style="width:42.5% ; height:100%"></div>
+                    <div style="width:16% ; height:100% ; color : white ;">
+                        <h2 style="font-weight: bold;">Smart Bartender</h2>
+                        <!--button9-->
+                                            <form action="/9" method="POST">
+                                            <button  class="btn btn-dark" style = "border-radius:30px;text-align:center; width:60% ;font-weight: bold;">shake</button> 
+                                            </form>
+                    </div>
+                    <div style="width:42.5% ; height:100%"></div>
+                </div>
+                <div id="block">
+                    <div style="width:100% ; background-color: rgb(245,245,245);height:2.5%"></div>
+                    <div style="width:100% ; 
+                                background-color:black;
+                                height:95%;
+                                display:flex;
+                                flex-direction:row;">
+                        <div style="width:5% ; background-color: rgb(245,245,245);height:100%"></div>
+                        <div style="width:22.5% ; 
+                                    background-color: yellow;
+                                    height:100%;
+                                    display:flex;
+                                    flex-direction:column;">
+                            
+                            <div style="width:100% ; 
+                                        background-color: black;
+                                        height:50%;
+                                        display:flex;
+                                        flex-direction:row;">
+                                
+                                <div style="width:10% ; background-color: white;height:100%"></div>
+                                <div style="width:80% ; 
+                                            background-color: white;
+                                            height:100%;
+                                            display:flex;
+                                            flex-direction:column">
+                                    <div style="width:100% ; background-color: white;height:5%"></div>
+                                    <div style="width:100% ; background-color: #FFD200;height:80%; border-radius: 25px;">
+                                        <div  style="text-align:center; color : #0c1428; margin-top : 10% ;">
+                                            <h4 style="font-weight: bold;">Compound</h4>
+                                            <h5>1.Soju</h5>
+                                            <h5>2.Sprite</h5>
+                                            <h5>3.Lemon juice</h5>
+                                            <h5>4.Orange juice</h5>
+                                         </div>
+                                    </div>
+                                    <div style="width:100% ; background-color: white;height:2%"></div>
+                                    <div style="width:100% ; height:20% ;border-radius: 50px;border: 2px solid #0c1428">
+                                        <div style="margin-top: 5%;text-align:center; color : #0c1428; ">
+                                             <h5 style="font-weight: bold;">Price 50 THB</h5>
+                                        </div>
+                                    </div>
+                                    <div style="width:100% ; background-color: white;height:2%"></div>
+                                    <div style="width:100% ;height:30%">
+                                        <div class="popup" id="popup-1">
+                                            <div class="overlay"></div>
+                                            <div class="content">
+                                            <div class="close-btn" onclick="togglePopup()">&times;</div>
+                                            <h1 style="font-weight: bold;">Scan</h1>
+                                            <img src="/static/img/qrcode.png" class="img-fluid" alt="QR.PNG" width="250" height="250">
+                                            <h5 style="font-weight: bold;">Price 50 Baht</h5>
+                                            
+                                            <!--button1-->
+                                            <form action="/1" method="POST">
+                                            <button  class="btn btn-dark" style = "border-radius:30px;text-align:center; width:60% ;font-weight: bold;">Push1</button>  
+                                            </form>
+                                            
+                                            </div>
+                                        </div>
+                                        <button  class="btn btn-success btn-lg" onclick="togglePopup()" style="margin-top: 2%;margin-left:25%;;border-radius: 15px; width:50%; background-color : #0c1428; border:none; font-size:13px;font-weight: bold;" >Menu1</button>
+                                    </div>
+                                </div>
+                                <div style="width:10% ; background-color: white;height:100%"></div>
+                            </div>
+                            
+
+                            <div style="width:100% ; 
+                                        background-color: black;
+                                        height:50%;
+                                        display:flex;
+                                        flex-direction:row;">
+                                
+                                <div style="width:10% ; background-color: white;height:100%"></div>
+                                <div style="width:80% ; 
+                                            background-color: white;
+                                            height:100%;
+                                            display:flex;
+                                            flex-direction:column">
+                                    <div style="width:100% ; background-color: white;height:5%"></div>
+                                    <div style="width:100% ; background-color: #FFD200;height:80%; border-radius: 25px;">
+                                        <div  style="text-align:center; color : #0c1428; margin-top : 10% ;">
+                                            <h4 style="font-weight: bold;">Compound</h4>
+                                            <h5>1.Soju</h5>
+                                            <h5>2.Sprite</h5>
+                                            <h5>3.Lemon juice</h5>
+                                            <h5>4.Orange juice</h5>
+                                         </div>
+                                    </div>
+                                    <div style="width:100% ; background-color: white;height:2%"></div>
+                                    <div style="width:100% ; height:20% ;border-radius: 50px;border: 2px solid #0c1428">
+                                        <div style="margin-top: 5%;text-align:center; color : #0c1428; ">
+                                             <h5 style="font-weight: bold;">Price 50 THB</h5>
+                                        </div>
+                                    </div>
+                                    <div style="width:100% ; background-color: white;height:2%"></div>
+                                    <div style="width:100% ;height:30%">
+                                        <div class="popup" id="popup-5">
+                                            <div class="overlay"></div>
+                                            <div class="content">
+                                            <div class="close-btn" onclick="togglePopup5()">&times;</div>
+                                            <h1 style="font-weight: bold;">Scan</h1>
+                                            <img src="QR.PNG" class="img-fluid" alt="QR.PNG" width="250" height="250">
+                                            <h5 style="font-weight: bold;">Price 50 Baht</h5>
+                                            <!--button5-->
+                                            <form action="/5" method="POST">
+                                            <button  class="btn btn-dark" style = "border-radius:30px;text-align:center; width:60% ;font-weight: bold;">Push5</button>  
+                                            </form>
+                                            </div>
+                                        </div>
+                                        <button  class="btn btn-success btn-lg" onclick="togglePopup5()" style="margin-top: 2%;margin-left:25%;;border-radius: 15px; width:50%; background-color : #0c1428; border:none; font-size:13px;font-weight: bold;" >Menu5</button>
+                                    </div>
+                                </div>
+                                <div style="width:10% ; background-color: white;height:100%"></div>
+                            </div>
+                        </div>
+
+                        <div style="width:22.5% ; 
+                                    background-color: yellow;
+                                    height:100%;
+                                    display:flex;
+                                    flex-direction:column;">
+                            
+                            <div style="width:100% ; 
+                                        background-color: black;
+                                        height:50%;
+                                        display:flex;
+                                        flex-direction:row;">
+                                
+                                <div style="width:10% ; background-color: white;height:100%"></div>
+                                <div style="width:80% ; 
+                                            background-color: white;
+                                            height:100%;
+                                            display:flex;
+                                            flex-direction:column">
+                                    <div style="width:100% ; background-color: white;height:5%"></div>
+                                    <div style="width:100% ; background-color: #FFD200;height:80%; border-radius: 25px;">
+                                        <div  style="text-align:center; color : #0c1428; margin-top : 10% ;">
+                                            <h4 style="font-weight: bold;">Compound</h4>
+                                            <h5>1.Soju</h5>
+                                            <h5>2.Sprite</h5>
+                                            <h5>3.Lemon juice</h5>
+                                            <h5>4.Orange juice</h5>
+                                         </div>
+                                    </div>
+                                    <div style="width:100% ; background-color: white;height:2%"></div>
+                                    <div style="width:100% ; height:20% ;border-radius: 50px;border: 2px solid #0c1428">
+                                        <div style="margin-top: 5%;text-align:center; color : #0c1428; ">
+                                             <h5 style="font-weight: bold;">Price 50 THB</h5>
+                                        </div>
+                                    </div>
+                                    <div style="width:100% ; background-color: white;height:2%"></div>
+                                    <div style="width:100% ;height:30%">
+                                        <div class="popup" id="popup-2">
+                                            <div class="overlay"></div>
+                                            <div class="content">
+                                            <div class="close-btn" onclick="togglePopup2()">&times;</div>
+                                            <h1 style="font-weight: bold;">Scan</h1>
+                                            <img src="QR.PNG" class="img-fluid" alt="QR.PNG" width="250" height="250">
+                                            <h5 style="font-weight: bold;">Price 50 Baht</h5>
+                                            <!--button2-->
+                                            <form action="/2" method="POST">
+                                            <button  class="btn btn-dark" style = "border-radius:30px;text-align:center; width:60% ;font-weight: bold;">Push2</button>  
+                                            </form>
+                                            </div>
+                                        </div>
+                                        <button  class="btn btn-success btn-lg" onclick="togglePopup2()" style="margin-top: 2%;margin-left:25%;;border-radius: 15px; width:50%; background-color : #0c1428; border:none; font-size:13px;font-weight: bold;" >Menu2</button>
+                                    </div>
+                                </div>
+                                <div style="width:10% ; background-color: white;height:100%"></div>
+                            </div>
+                            
+
+                            <div style="width:100% ; 
+                                        background-color: black;
+                                        height:50%;
+                                        display:flex;
+                                        flex-direction:row;">
+                                
+                                <div style="width:10% ; background-color: white;height:100%"></div>
+                                <div style="width:80% ; 
+                                            background-color: white;
+                                            height:100%;
+                                            display:flex;
+                                            flex-direction:column">
+                                    <div style="width:100% ; background-color: white;height:5%"></div>
+                                    <div style="width:100% ; background-color: #FFD200;height:80%; border-radius: 25px;">
+                                        <div  style="text-align:center; color : #0c1428; margin-top : 10% ;">
+                                            <h4 style="font-weight: bold;">Compound</h4>
+                                            <h5>1.Soju</h5>
+                                            <h5>2.Sprite</h5>
+                                            <h5>3.Lemon juice</h5>
+                                            <h5>4.Orange juice</h5>
+                                         </div>
+                                    </div>
+                                    <div style="width:100% ; background-color: white;height:2%"></div>
+                                    <div style="width:100% ; height:20% ;border-radius: 50px;border: 2px solid #0c1428">
+                                        <div style="margin-top: 5%;text-align:center; color : #0c1428; ">
+                                             <h5 style="font-weight: bold;">Price 50 THB</h5>
+                                        </div>
+                                    </div>
+                                    <div style="width:100% ; background-color: white;height:2%"></div>
+                                    <div style="width:100% ;height:30%">
+                                        <div class="popup" id="popup-6">
+                                            <div class="overlay"></div>
+                                            <div class="content">
+                                            <div class="close-btn" onclick="togglePopup6()">&times;</div>
+                                            <h1 style="font-weight: bold;">Scan</h1>
+                                            <img src="QR.PNG" class="img-fluid" alt="QR.PNG" width="250" height="250">
+                                            <h5 style="font-weight: bold;">Price 50 Baht</h5>
+                                            
+                                            <!--button6-->
+                                            <form action="/6" method="POST">
+                                            <button  class="btn btn-dark" style = "border-radius:30px;text-align:center; width:60% ;font-weight: bold;">Push6</button>  
+                                             </form>
+                                             
+                                            </div>
+                                        </div>
+                                        <button  class="btn btn-success btn-lg" onclick="togglePopup6()" style="margin-top: 2%;margin-left:25%;;border-radius: 15px; width:50%; background-color : #0c1428; border:none; font-size:13px;font-weight: bold;" >Menu6</button>
+                                    </div>
+                                </div>
+                                <div style="width:10% ; background-color: white;height:100%"></div>
+                            </div>
+                        </div>
+
+
+                       <div style="width:22.5% ; 
+                                    background-color: yellow;
+                                    height:100%;
+                                    display:flex;
+                                    flex-direction:column;">
+                            
+                            <div style="width:100% ; 
+                                        background-color: black;
+                                        height:50%;
+                                        display:flex;
+                                        flex-direction:row;">
+                                
+                                <div style="width:10% ; background-color: white;height:100%"></div>
+                                <div style="width:80% ; 
+                                            background-color: white;
+                                            height:100%;
+                                            display:flex;
+                                            flex-direction:column">
+                                    <div style="width:100% ; background-color: white;height:5%"></div>
+                                    <div style="width:100% ; background-color: #FFD200;height:80%; border-radius: 25px;">
+                                        <div  style="text-align:center; color : #0c1428; margin-top : 10% ;">
+                                            <h4 style="font-weight: bold;">Compound</h4>
+                                            <h5>1.Soju</h5>
+                                            <h5>2.Sprite</h5>
+                                            <h5>3.Lemon juice</h5>
+                                            <h5>4.Orange juice</h5>
+                                         </div>
+                                    </div>
+                                    <div style="width:100% ; background-color: white;height:2%"></div>
+                                    <div style="width:100% ; height:20% ;border-radius: 50px;border: 2px solid #0c1428">
+                                        <div style="margin-top: 5%;text-align:center; color : #0c1428; ">
+                                             <h5 style="font-weight: bold;">Price 50 THB</h5>
+                                        </div>
+                                    </div>
+                                    <div style="width:100% ; background-color: white;height:2%"></div>
+                                    <div style="width:100% ;height:30%">
+                                        <div class="popup" id="popup-3">
+                                            <div class="overlay"></div>
+                                            <div class="content">
+                                            <div class="close-btn" onclick="togglePopup3()">&times;</div>
+                                            <h1 style="font-weight: bold;">Scan</h1>
+                                            <img src="QR.PNG" class="img-fluid" alt="QR.PNG" width="250" height="250">
+                                            <h5 style="font-weight: bold;">Price 50 Baht</h5>
+                                            <!--button3-->
+                                            <form action="/3" method="POST">
+                                            <button  class="btn btn-dark" style = "border-radius:30px;text-align:center; width:60% ;font-weight: bold;">Push3</button> 
+                                            </form>  
+                                            </div>
+                                        </div>
+                                        <button  class="btn btn-success btn-lg" onclick="togglePopup3()" style="margin-top: 2%;margin-left:25%;;border-radius: 15px; width:50%; background-color : #0c1428; border:none; font-size:13px;font-weight: bold;" >Menu3</button>
+                                    </div>
+                                </div>
+                                <div style="width:10% ; background-color: white;height:100%"></div>
+                            </div>
+                            
+
+                            <div style="width:100% ; 
+                                        background-color: black;
+                                        height:50%;
+                                        display:flex;
+                                        flex-direction:row;">
+                                
+                                <div style="width:10% ; background-color: white;height:100%"></div>
+                                <div style="width:80% ; 
+                                            background-color: white;
+                                            height:100%;
+                                            display:flex;
+                                            flex-direction:column">
+                                    <div style="width:100% ; background-color: white;height:5%"></div>
+                                    <div style="width:100% ; background-color: #FFD200;height:80%; border-radius: 25px;">
+                                        <div  style="text-align:center; color : #0c1428; margin-top : 10% ;">
+                                            <h4 style="font-weight: bold;">Compound</h4>
+                                            <h5>1.Soju</h5>
+                                            <h5>2.Sprite</h5>
+                                            <h5>3.Lemon juice</h5>
+                                            <h5>4.Orange juice</h5>
+                                         </div>
+                                    </div>
+                                    <div style="width:100% ; background-color: white;height:2%"></div>
+                                    <div style="width:100% ; height:20% ;border-radius: 50px;border: 2px solid #0c1428">
+                                        <div style="margin-top: 5%;text-align:center; color : #0c1428; ">
+                                             <h5 style="font-weight: bold;">Price 50 THB</h5>
+                                        </div>
+                                    </div>
+                                    <div style="width:100% ; background-color: white;height:2%"></div>
+                                    <div style="width:100% ;height:30%">
+                                        <div class="popup" id="popup-7">
+                                            <div class="overlay"></div>
+                                            <div class="content">
+                                            <div class="close-btn" onclick="togglePopup7()">&times;</div>
+                                            <h1 style="font-weight: bold;">Scan</h1>
+                                            <img src="QR.PNG" class="img-fluid" alt="QR.PNG" width="250" height="250">
+                                            <h5 style="font-weight: bold;">Price 50 Baht</h5>
+                                            <!--button7-->
+                                            <form action="/7" method="POST">
+                                            <button  class="btn btn-dark" style = "border-radius:30px;text-align:center; width:60% ;font-weight: bold;">Push7</button>  
+                                            </form>
+                                            </div>
+                                        </div>
+                                        <button  class="btn btn-success btn-lg" onclick="togglePopup7()" style="margin-top: 2%;margin-left:25%;;border-radius: 15px; width:50%; background-color : #0c1428; border:none; font-size:13px;font-weight: bold;" >Menu7</button>
+                                    </div>
+                                </div>
+                                <div style="width:10% ; background-color: white;height:100%"></div>
+                            </div>
+                        </div>
+                       <div style="width:22.5% ; 
+                                    background-color: yellow;
+                                    height:100%;
+                                    display:flex;
+                                    flex-direction:column;">
+                            
+                            <div style="width:100% ; 
+                                        background-color: black;
+                                        height:50%;
+                                        display:flex;
+                                        flex-direction:row;">
+                                
+                                <div style="width:10% ; background-color: white;height:100%"></div>
+                                <div style="width:80% ; 
+                                            background-color: white;
+                                            height:100%;
+                                            display:flex;
+                                            flex-direction:column">
+                                    <div style="width:100% ; background-color: white;height:5%"></div>
+                                    <div style="width:100% ; background-color: #FFD200;height:80%; border-radius: 25px;">
+                                        <div  style="text-align:center; color : #0c1428; margin-top : 10% ;">
+                                            <h4 style="font-weight: bold;">Compound</h4>
+                                            <h5>1.Soju</h5>
+                                            <h5>2.Sprite</h5>
+                                            <h5>3.Lemon juice</h5>
+                                            <h5>4.Orange juice</h5>
+                                         </div>
+                                    </div>
+                                    <div style="width:100% ; background-color: white;height:2%"></div>
+                                    <div style="width:100% ; height:20% ;border-radius: 50px;border: 2px solid #0c1428">
+                                        <div style="margin-top: 5%;text-align:center; color : #0c1428; ">
+                                             <h5 style="font-weight: bold;">Price 50 THB</h5>
+                                        </div>
+                                    </div>
+                                    <div style="width:100% ; background-color: white;height:2%"></div>
+                                    <div style="width:100% ;height:30%">
+                                        <div class="popup" id="popup-4">
+                                            <div class="overlay"></div>
+                                            <div class="content">
+                                            <div class="close-btn" onclick="togglePopup4()">&times;</div>
+                                            <h1 style="font-weight: bold;">Scan</h1>
+                                            <img src="QR.PNG" class="img-fluid" alt="QR.PNG" width="250" height="250">
+                                            <h5 style="font-weight: bold;">Price 50 Baht</h5>
+                                            <!--button4-->
+                                            <form action="/4" method="POST">
+                                            <button  class="btn btn-dark" style = "border-radius:30px;text-align:center; width:60% ;font-weight: bold;">Push4</button> 
+                                            </form> 
+                                            </div>
+                                        </div>
+                                        <button  class="btn btn-success btn-lg" onclick="togglePopup4()" style="margin-top: 2%;margin-left:25%;;border-radius: 15px; width:50%; background-color : #0c1428; border:none; font-size:13px;font-weight: bold;" >Menu4</button>
+                                    </div>
+                                </div>
+                                <div style="width:10% ; background-color: white;height:100%"></div>
+                            </div>
+                            
+
+                            <div style="width:100% ; 
+                                        background-color: black;
+                                        height:50%;
+                                        display:flex;
+                                        flex-direction:row;">
+                                
+                                <div style="width:10% ; background-color: white;height:100%"></div>
+                                <div style="width:80% ; 
+                                            background-color: white;
+                                            height:100%;
+                                            display:flex;
+                                            flex-direction:column">
+                                    <div style="width:100% ; background-color: white;height:5%"></div>
+                                    <div style="width:100% ; background-color: #FFD200;height:80%; border-radius: 25px;">
+                                        <div  style="text-align:center; color : #0c1428; margin-top : 10% ;">
+                                            <h4 style="font-weight: bold;">Compound</h4>
+                                            <h5>1.Soju</h5>
+                                            <h5>2.Sprite</h5>
+                                            <h5>3.Lemon juice</h5>
+                                            <h5>4.Orange juice</h5>
+                                         </div>
+                                    </div>
+                                    <div style="width:100% ; background-color: white;height:2%"></div>
+                                    <div style="width:100% ; height:20% ;border-radius: 50px;border: 2px solid #0c1428">
+                                        <div style="margin-top: 5%;text-align:center; color : #0c1428; ">
+                                             <h5 style="font-weight: bold;">Price 50 THB</h5>
+                                        </div>
+                                    </div>
+                                    <div style="width:100% ; background-color: white;height:2%"></div>
+                                    <div style="width:100% ;height:30%">
+                                        <div class="popup" id="popup-8">
+                                            <div class="overlay"></div>
+                                            <div class="content">
+                                            <div class="close-btn" onclick="togglePopup8()">&times;</div>
+                                            <h1 style="font-weight: bold;">Scan</h1>
+                                            <img src="QR.PNG" class="img-fluid" alt="QR.PNG" width="250" height="250">
+                                            <h5 style="font-weight: bold;">Price 50 Baht</h5>
+                                            <!--button8-->
+                                            <form action="/8" method="POST">
+                                            <button  class="btn btn-dark" style = "border-radius:30px;text-align:center; width:60% ;font-weight: bold;">Push8</button>  
+                                             </form>
+                                            </div>
+                                        </div>
+                                        <button  class="btn btn-success btn-lg" onclick="togglePopup8()" style="margin-top: 2%;margin-left:25%;;border-radius: 15px; width:50%; background-color : #0c1428; border:none; font-size:13px;font-weight: bold;" >Menu8</button>
+                                    </div>
+                                </div>
+                                <div style="width:10% ; background-color: white;height:100%"></div>
+                            </div>
+                        </div>
+                        <div style="width:5% ; background-color: rgb(245,245,245);height:100%"></div>
+
+                    
+                    </div>
+                    <div style="width:100% ; background-color: rgb(245,245,245);height:2.5%"></div>
+                </div>
+            </div>
+            
+            <script>
+                function togglePopup(){
+                document.getElementById("popup-1").classList.toggle("active");
+                }
+            </script>
+            
+            <script>
+                function togglePopup2(){
+                document.getElementById("popup-2").classList.toggle("active");
+                }
+            </script>
+            
+            <script>
+                function togglePopup3(){
+                document.getElementById("popup-3").classList.toggle("active");
+                }
+            </script>
+            
+            <script>
+                function togglePopup4(){
+                document.getElementById("popup-4").classList.toggle("active");
+                }
+            </script>
+            
+            <script>
+                function togglePopup5(){
+                document.getElementById("popup-5").classList.toggle("active");
+                }
+            </script>
+            
+            <script>
+                function togglePopup6(){
+                document.getElementById("popup-6").classList.toggle("active");
+                }
+            </script>
+            
+            <script>
+                function togglePopup7(){
+                document.getElementById("popup-7").classList.toggle("active");
+                }
+            </script>
+            
+            <script>
+                function togglePopup8(){
+                document.getElementById("popup-8").classList.toggle("active");
+                }
+            </script>
+            
+        </body>
+</html>
+
+

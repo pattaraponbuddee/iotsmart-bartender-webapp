@@ -1,0 +1,377 @@
+<html lang="en">
+        <head>
+            <meta charset="utf-8">
+            <title>custom</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link href="https://fonts.googleapis.com/css?family=Baloo&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+            
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+            
+            <script src="/static/promptpay-qr.js"></script>
+            <script src="/static/qrcode.min.js"></script>
+
+        </head>
+            <style>
+            .slidecontainer {
+                width: 100%;
+            }
+
+            .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 20px;
+            border-radius: 50px;
+            background: #FFFFFF;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+            }
+
+            .slider:hover {
+            opacity: 1;
+            }
+
+            .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 30px;
+            height:30px;
+            border-radius: 50%;
+            background: #440BD4;
+            cursor: pointer;
+            }
+
+            .slider::-moz-range-thumb {
+            width: 30px;
+            height:30px;
+            border-radius: 50%;
+            background: #440BD4;
+            cursor: pointer;
+            }
+
+            #tab {
+                margin-left : 10px ;
+            }
+
+              .popup .overlay {
+    position:fixed;
+    top:0px;
+    left:0px;
+    width:100vw;
+    height:100vh;
+    background:rgba(0,0,0,0.7);
+    z-index:1;
+    display:none;
+    }
+    
+    .popup .content {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%) scale(0);
+    background:#fff;
+    width:400px;
+    height:450px;
+    z-index:2;
+    text-align:center;
+    padding:20px;
+    box-sizing:border-box;
+    font-family:"Open Sans",sans-serif;
+    border-radius: 50px;
+    }
+    
+    .popup .close-btn {
+    cursor:pointer;
+    position:absolute;
+    right:20px;
+    top:20px;
+    width:30px;
+    height:30px;
+    background:#222;
+    color:#fff;
+    font-size:25px;
+    font-weight:600;
+    line-height:30px;
+    text-align:center;
+    border-radius:50%;
+    }
+    
+    .popup.active .overlay {
+    display:block;
+    }
+    
+    .popup.active .content {
+    transition:all 300ms ease-in-out;
+    transform:translate(-50%,-50%) scale(1);
+    }
+
+            </style>
+        <body>
+
+        <div id="main" style="width:100% ; height : 100% ; background-color : #0F2135 ">
+            <div style=" width : 100%; height : 82px ; background-color : #0F2135 ; ">
+                <div style = " margin-left : 800px ; padding-top : 20px ;">
+                    <button onclick = "location.href='/lastcustom'" style="width : 200px ; height : 40px ; background-color: white ;  border-radius : 50px ; font-size : 15px ; color : #000000 ; font-weight : bold ;" >Last Custom</button>
+                </div>
+            </div>
+            <form method="POST">
+                <div style=" width : 100%; height : 120px ; background-color : #0F2135 ; text-align : center ; ">
+                    <span style=" padding-top : 40px ;  font-size : 20px ; color : white ; font-weight : bold ; ">Volume</span><br>
+                    <span id = "total_ml" style=" font-size : 35px ; color : white ; font-weight : bold ; "></span>
+                    <span  id="tab" style=" font-size : 35px ; color : white ; font-weight : bold ; ">ML</span>
+                </div>
+                <div style=" margin-left : 60px ;  width : 900px ; height : 360px ; background-color : yellow ; ">
+                    <div style=" padding-top : 30px ;  width : 100%; height : 25%; background-color : #0F2135; display : flex ; flex-direction : colum ; ">
+                        <div style="width : 300px; height : 100%; background-color : #0F2135;">
+                            <input type="range" min="0" max="120" value="0" name = "p1" class="slider" id="myRange1">
+                        </div>
+                        <div style=" margin-top : -5px ;  margin-left : 20px ; width : 300px; height : 100%; background-color : #0F2135; display : flex ; flex-direction : row; ">
+                            <p style="font-size : 20px ; color : white ; font-weight : bold ; ">Ingredient 1 : </p>
+                            <div style="padding-top : 5px ;  margin-top : -5px ;  margin-left : 20px ; width : 100px; height : 40px ; background-color : #FF2079; border-radius : 50px ; text-align : center ; ">
+                                <span id="demo1" style="  font-size : 20px ; color : white ; font-weight : bold ;"></span>
+                            </div>
+                            <p style="margin-left : 10px ; font-size : 20px ; color : white ; font-weight : bold ; ">ML</p>
+                        </div>
+                        <div style=" margin-top : -5px ; margin-left : 20px ; width : 300px; height : 100%; background-color : #0F2135; display : flex ; flex-direction : row; ">
+                            <p style="font-size : 20px ; color : white ; font-weight : bold ; ">Price : </p>
+                            <div style="padding-top : 5px ;   margin-top : -5px ; margin-left : 20px ; width : 100px; height : 40px ; background-color : #FF2079; border-radius : 50px ; text-align : center ; ">
+                                <span id="price1" style="  font-size : 20px ; color : white ; font-weight : bold ;">0</span>
+                            </div>
+                            <p style="margin-left : 10px ; font-size : 20px ; color : white ; font-weight : bold ; ">Bath</p>
+                        </div>
+                    </div>
+
+                    <div style=" padding-top : 30px ;  width : 100%; height : 25%; background-color : #0F2135; display : flex ; flex-direction : colum ; ">
+                        <div style="width : 300px; height : 100%; background-color : #0F2135;">
+                            <input type="range" min="0" max="120" value="0" name = "p2" class="slider" id="myRange2">
+                        </div>
+                        <div style=" margin-top : -5px ;  margin-left : 20px ; width : 300px; height : 100%; background-color : #0F2135; display : flex ; flex-direction : row; ">
+                            <p style="font-size : 20px ; color : white ; font-weight : bold ; ">Ingredient 2 : </p>
+                            <div style="padding-top : 5px ;  margin-top : -5px ;  margin-left : 20px ; width : 100px; height : 40px ; background-color : #FF2079; border-radius : 50px ; text-align : center ; ">
+                                <span id="demo2" style="  font-size : 20px ; color : white ; font-weight : bold ;"></span>
+                            </div>
+                            <p style="margin-left : 10px ; font-size : 20px ; color : white ; font-weight : bold ; ">ML</p>
+                        </div>
+                        <div style=" margin-top : -5px ; margin-left : 20px ; width : 300px; height : 100%; background-color : #0F2135; display : flex ; flex-direction : row; ">
+                            <p style="font-size : 20px ; color : white ; font-weight : bold ; ">Price : </p>
+                            <div style="padding-top : 5px ;   margin-top : -5px ; margin-left : 20px ; width : 100px; height : 40px ; background-color : #FF2079; border-radius : 50px ; text-align : center ; ">
+                                <span id="price2" style="  font-size : 20px ; color : white ; font-weight : bold ;">0</span>
+                            </div>
+                            <p style="margin-left : 10px ; font-size : 20px ; color : white ; font-weight : bold ; ">Bath</p>
+                        </div>
+                    </div>
+
+                    <div style=" padding-top : 30px ;  width : 100%; height : 25%; background-color : #0F2135; display : flex ; flex-direction : colum ; ">
+                        <div style="width : 300px; height : 100%; background-color : #0F2135;">
+                            <input type="range" min="0" max="120" value="0" name = "p3"  class="slider" id="myRange3">
+                        </div>
+                        <div style=" margin-top : -5px ;  margin-left : 20px ; width : 300px; height : 100%; background-color : #0F2135; display : flex ; flex-direction : row; ">
+                            <p style="font-size : 20px ; color : white ; font-weight : bold ; ">Ingredient 3 : </p>
+                            <div style="padding-top : 5px ;  margin-top : -5px ;  margin-left : 20px ; width : 100px; height : 40px ; background-color : #FF2079; border-radius : 50px ; text-align : center ; ">
+                                <span id="demo3" style="  font-size : 20px ; color : white ; font-weight : bold ;"></span>
+                            </div>
+                            <p style="margin-left : 10px ; font-size : 20px ; color : white ; font-weight : bold ; ">ML</p>
+                        </div>
+                        <div style=" margin-top : -5px ; margin-left : 20px ; width : 300px; height : 100%; background-color : #0F2135; display : flex ; flex-direction : row; ">
+                            <p style="font-size : 20px ; color : white ; font-weight : bold ; ">Price : </p>
+                            <div style="padding-top : 5px ;   margin-top : -5px ; margin-left : 20px ; width : 100px; height : 40px ; background-color : #FF2079; border-radius : 50px ; text-align : center ; ">
+                                <span id="price3" style="  font-size : 20px ; color : white ; font-weight : bold ;">0</span>
+                            </div>
+                            <p style="margin-left : 10px ; font-size : 20px ; color : white ; font-weight : bold ; ">Bath</p>
+                        </div>
+                    </div>
+
+                    <div style=" padding-top : 30px ;  width : 100%; height : 25%; background-color : #0F2135; display : flex ; flex-direction : colum ; ">
+                        <div style="width : 300px; height : 100%; background-color : #0F2135;">
+                            <input type="range" min="0" max="120" value="0" name = "p4"  class="slider" id="myRange4">
+                        </div>
+                        <div style=" margin-top : -5px ;  margin-left : 20px ; width : 300px; height : 100%; background-color : #0F2135; display : flex ; flex-direction : row; ">
+                            <p style="font-size : 20px ; color : white ; font-weight : bold ; ">Ingredient 4 : </p>
+                            <div style="padding-top : 5px ;  margin-top : -5px ;  margin-left : 20px ; width : 100px; height : 40px ; background-color : #FF2079; border-radius : 50px ; text-align : center ; ">
+                                <span id="demo4" style="  font-size : 20px ; color : white ; font-weight : bold ;"></span>
+                            </div>
+                            <p style="margin-left : 10px ; font-size : 20px ; color : white ; font-weight : bold ; ">ML</p>
+                        </div>
+                        <div style=" margin-top : -5px ; margin-left : 20px ; width : 300px; height : 100%; background-color : #0F2135; display : flex ; flex-direction : row; ">
+                            <p style="font-size : 20px ; color : white ; font-weight : bold ; ">Price : </p>
+                            <div style="padding-top : 5px ;   margin-top : -5px ; margin-left : 20px ; width : 100px; height : 40px ; background-color : #FF2079; border-radius : 50px ; text-align : center ; ">
+                                <span id="price4" style="  font-size : 20px ; color : white ; font-weight : bold ;">0</span>
+                            </div>
+                            <p style="margin-left : 10px ; font-size : 20px ; color : white ; font-weight : bold ; ">Bath</p>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <!--Popup QR -->
+                            <div class="popup" id="popup-QR">
+                                <div class="overlay"></div>
+                                <div class="content" style="width:30%;  height:70%;">
+                                    <div class="close-btn" onclick="togglePopup_QR()">&times;</div>
+                                    <div style="  height: 100% ; width : 100% ; display:flex ; flex-direction : column;">
+                                        <div style=" background-color : white; height:10%; "></div>
+                                        <div style=" background-color : white; height:20%; ">
+                                            <img src="https://media.discordapp.net/attachments/807134152011939850/818913376284966922/pormpt.png" width= 80% height=100% >
+                                        </div>
+                                        <div id="qrcode" style="  display:flex ; justify-content: center ; "></div>
+                                        <div style=" background-color : white; height:0%; margin-top : 5%; ">
+                                            
+                                        </div>
+                                        <div style=" background-color : white; height:7%; margin-top : -2%;">
+                                            <span id="totat_money_QR" style="font-family:Baloo;color : #464645 ;font-size : 14px; "></span>
+                                        </div>
+                                        <div style=" background-color : #464645; height:1%; "></div>
+                                        <div style=" background-color : white; height:5%; "></div>
+                                        
+                                        <button type="submit" style="background-color:  #FF2079;
+                                                                color:  rgb(255, 255, 255);
+                                                                border: none;
+                                                                width:  90%;
+                                                                height:  80px;
+                                                                border-radius: 50px;
+                                                                font-family:Baloo;
+                                                                margin-left : 10px ;
+                                                                font-size:14px;"
+                                                        
+                                                        onclick = "location.href='/cashier/create_bill/'"
+                                                >Complete</button>
+                                    </div>
+                                    
+              
+                                </div>
+                            </div>
+                            <!--End Popup -->
+
+
+                <div style=" width : 100%; height : 100px ; background-color : #0F2135 ; ">
+                    <div style = "padding-top : 20px ; display : flex ; ">
+                        <div>
+                            <div style=" margin-left : 67px ;  margin-top : -5px ; width : 300px; height : 80px; background-color : #0F2135; display : flex ; flex-direction : row; ">
+                                <p style="font-size : 20px ; color : white ; font-weight : bold ; ">Total : </p>
+                                <div style="padding-top : 5px ;   margin-top : -5px ; margin-left : 20px ; width : 100px; height : 40px ; background-color : #FF2079; border-radius : 50px ; text-align : center ; ">
+                                    <span id="total_price" style="  font-size : 20px ; color : white ; font-weight : bold ;">0</span>
+                                </div>
+                                <p style="margin-left : 10px ; font-size : 20px ; color : white ; font-weight : bold ; ">Bath</p>
+                            </div>
+                        </div>
+                        <div style=" margin-left : 420px ;">
+                        <button style="width : 200px ; height : 40px ; background-color: white ;  border-radius : 50px ; font-size : 15px ; color : #000000 ; font-weight : bold ; "  
+                            onclick="togglePopup_QR()" 
+                            id="submit"
+                            type="button" >Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </from>
+        </div>
+
+        
+        
+        <script>
+
+        var slider = document.getElementById("myRange1");
+        var output = document.getElementById("demo1");
+        var price = document.getElementById("price1");
+        var t = document.getElementById("total_ml");
+        var to = document.getElementById("total_price");
+        output.innerHTML = slider.value;
+        slider.oninput = function() {
+        output.innerHTML = this.value;
+        price.innerHTML = (slider.value)*1;
+        var a = document.getElementById('myRange1').value;
+        var b = document.getElementById('myRange2').value;
+        var c = document.getElementById('myRange3').value;
+        var d = document.getElementById('myRange4').value;
+        var sum = parseInt(a) + parseInt(b) + parseInt(c)+ parseInt(d);
+        var totalpice = parseInt(a)*1 + parseInt(b)*2 + parseInt(c)*3+ parseInt(d)*4;
+        t.innerHTML = sum ;
+        to.innerHTML = totalpice ;
+        }
+
+        var slider2 = document.getElementById("myRange2");
+        var output2 = document.getElementById("demo2");
+        var price2 = document.getElementById("price2");
+        output2.innerHTML = slider2.value;
+        slider2.oninput = function() {
+        output2.innerHTML = this.value;
+        price2.innerHTML = (slider2.value)*2;
+        var a = document.getElementById('myRange1').value;
+        var b = document.getElementById('myRange2').value;
+        var c = document.getElementById('myRange3').value;
+        var d = document.getElementById('myRange4').value;
+        var sum = parseInt(a) + parseInt(b) + parseInt(c)+ parseInt(d);
+        var totalpice = parseInt(a)*1 + parseInt(b)*2 + parseInt(c)*3+ parseInt(d)*4;
+        t.innerHTML = sum ;
+        to.innerHTML = totalpice ;
+        }
+
+        var slider3 = document.getElementById("myRange3");
+        var output3 = document.getElementById("demo3");
+        var price3 = document.getElementById("price3");
+        output3.innerHTML = slider3.value;
+        slider3.oninput = function() {
+        output3.innerHTML = this.value;
+        price3.innerHTML = (slider3.value)*3;
+        var a = document.getElementById('myRange1').value;
+        var b = document.getElementById('myRange2').value;
+        var c = document.getElementById('myRange3').value;
+        var d = document.getElementById('myRange4').value;
+        var sum = parseInt(a) + parseInt(b) + parseInt(c)+ parseInt(d);
+        var totalpice = parseInt(a)*1 + parseInt(b)*2 + parseInt(c)*3+ parseInt(d)*4;
+        t.innerHTML = sum ;
+        to.innerHTML = totalpice ;
+        }
+
+        var slider4 = document.getElementById("myRange4");
+        var output4 = document.getElementById("demo4");
+        var price4 = document.getElementById("price4");
+        output4.innerHTML = slider4.value;
+        slider4.oninput = function() {
+        output4.innerHTML = this.value;
+        price4.innerHTML = (slider4.value)*4;
+        var a = document.getElementById('myRange1').value;
+        var b = document.getElementById('myRange2').value;
+        var c = document.getElementById('myRange3').value;
+        var d = document.getElementById('myRange4').value;
+        var sum = parseInt(a) + parseInt(b) + parseInt(c)+ parseInt(d);
+        var totalpice = parseInt(a)*1 + parseInt(b)*2 + parseInt(c)*3+ parseInt(d)*4;
+        t.innerHTML = sum ;
+        to.innerHTML = totalpice ;
+        }
+        
+  
+        function togglePopup_QR(){
+            document.getElementById("popup-QR").classList.toggle("active");
+        }
+        
+
+        </script>
+
+        <!-- QRCode -->
+        <script type="text/javascript">
+        // get QR-dom
+        var qr_dom = document.getElementById('qrcode');
+        // render QR function
+        function render_qr(){
+            var amount = document.getElementById('total_price').textContent;
+            var amount2 = parseInt(amount);
+            var txt = PromptPayQR.gen_text("0624723954", amount2);
+
+            qr_dom.innerHTML = "";
+            if(txt){
+            new QRCode(qr_dom, txt);
+            }
+        }
+        // bind acc_id, amount
+        document.getElementById('submit').addEventListener('click', render_qr, true);
+        </script>
+        <!-- End QRCode -->
+        
+        </body>
+</html>
+
+
+

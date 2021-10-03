@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> 
+    <style>
+        .btn {
+  display: block;
+  width: 100%;
+  padding: 4px 0px;
+  font-size: 1em;
+}
+
+div.col-2{
+  padding: 0;
+  margin-right: 4px;
+}
+
+.container.bars{
+  margin-top: 20px;
+  border: 1px solid grey;
+  background:rgba(112, 128, 144, 0.2)
+}
+.container.buttons{
+
+  border: 1px solid grey;
+  border-top: 0;
+}
+.progress {
+  border-radius: 100px;
+  background-color: #f8f9fa;
+  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.192);
+}
+
+.progress-bar.active {
+  border-radius: 100px;
+  background-color: #007bff;
+}
+
+.progress-bar.success {
+  background-color: green;
+  transition: width .6s ease, background-color .3s .3s ease-in;
+
+}
+
+.progress-bar.fail {
+  background-color: red;
+  transition: width .6s ease, background-color .3s .3s ease-in;
+
+}
+
+.progress-bar-text {
+  font-weight: 500;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+          <div id="bar4" class="progress my-4">
+            <div class="progress-bar active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+              <span class="progress-bar-text"></span>
+            </div>
+          </div>
+    
+        </div>
+    
+        <div class="container buttons">
+    
+          <div class="row py-2 justify-content-center">
+            <div class="col-2 col-md-1">
+    
+              <button type="button" id="btn1" class="btn btn-outline-danger">10%</button>
+            </div>
+            <div class="col-2 col-md-1">
+              <button type="button" id="btn2" class="btn btn-outline-danger ">20%</button>
+            </div>
+            <div class="col-2 col-md-1">
+              <button type="button" id="btn3" class="btn btn-outline-primary ">30%</button>
+            </div>
+            <div class="col-2 col-md-1">
+              <button type="button" id="btn4" class="btn btn-outline-primary ">40%</button>
+            </div>
+            <div class="col-2 col-md-1">
+              <button type="button" id="btn5" class="btn btn-outline-primary ">50%</button>
+            </div>
+            <div class="col-2 col-md-1">
+              <button type="button" id="btn6" class="btn btn-outline-primary ">60%</button>
+            </div>
+            <div class="col-2 col-md-1">
+              <button type="button" id="btn7" class="btn btn-outline-primary ">70%</button>
+            </div>
+            <div class="col-2 col-md-1">
+              <button type="button" id="btn8" class="btn btn-outline-primary ">80%</button>
+            </div>
+            <div class="col-2 col-md-1">
+              <button type="button" id="btn9" class="btn btn-outline-primary ">90%</button>
+            </div>
+            <div class="col-2 col-md-1">
+              <button type="button" id="btn10" class="btn btn-outline-success ">100%</button>
+            </div>
+    
+          </div>
+        </div>
+      </div>
+    
+</body>
+
+<script>
+    function init() {
+  $('.progress').each(function () {
+    $this = $(this);
+    var progressValue = $this.children().attr('aria-valuenow');
+    $this.children().width(progressValue + "%");
+    if (progressValue != 100) {
+      $this.children().children().text(progressValue + "%");
+    }
+  })
+}
+</script>
+<script>
+function set(selector, value) {
+  $(selector).children().removeClass('success fail');
+
+  $(selector).children().attr('aria-valuenow', value);
+  if(value>100){
+    console.log('value over 100');
+  } else if (value == 100) {
+    $(selector).children().attr('aria-valuenow', value);
+    $(selector).children().children().html('<i class="fas fa-check"></i>');
+    $(selector).children().addClass('success');
+  } else if (value < 30) {
+    $(selector).children().addClass('fail');
+  }
+  init();
+}
+</script>
+
+<script>
+set('#bar1', 10);
+set('#bar2', 20);
+set('#bar3', 30);
+set('#bar4', 90);
+
+$('#btn1').on("click", function () {
+  set('#bar4', 10)
+});
+$('#btn2').on("click", function () {
+  set('#bar4', 20)
+});
+$('#btn3').on("click", function () {
+  set('#bar4', 30)
+});
+$('#btn4').on("click", function () {
+  set('#bar4', 40)
+});
+$('#btn5').on("click", function () {
+  set('#bar4', 50)
+});
+$('#btn6').on("click", function () {
+  set('#bar4', 60)
+});
+$('#btn7').on("click", function () {
+  set('#bar4', 70)
+});
+$('#btn8').on("click", function () {
+  set('#bar4', 80)
+});
+$('#btn9').on("click", function () {
+  set('#bar4', 90)
+});
+$('#btn10').on("click", function () {
+  set('#bar4', 100)
+});
+</script>
+</html>

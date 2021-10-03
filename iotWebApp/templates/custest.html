@@ -1,0 +1,394 @@
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <style>
+    .slidecontainer {
+      width: 100%;
+    }
+    
+    .slider1 {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 25px;
+      border-radius: 5px;
+      background: #d3d3d3;
+      outline: none;
+      opacity: 0.7;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+    }
+    
+    .slider1:hover {
+      opacity: 1;
+    }
+    
+    .slider1::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #4CAF50;
+      cursor: pointer;
+    }
+    
+    .slider1::-moz-range-thumb {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #4CAF50;
+      cursor: pointer;
+    }
+
+    .slider2 {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 25px;
+      border-radius: 5px;
+      background: #d3d3d3;
+      outline: none;
+      opacity: 0.7;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+    }
+    
+    .slider2:hover {
+      opacity: 1;
+    }
+    
+    .slider2::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #4CAF50;
+      cursor: pointer;
+    }
+    
+    .slider2::-moz-range-thumb {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #4CAF50;
+      cursor: pointer;
+    }
+
+
+    .slider3 {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 25px;
+      border-radius: 5px;
+      background: #d3d3d3;
+      outline: none;
+      opacity: 0.7;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+    }
+    
+    .slider3:hover {
+      opacity: 1;
+    }
+    
+    .slider3::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #4CAF50;
+      cursor: pointer;
+    }
+    
+    .slider3::-moz-range-thumb {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #4CAF50;
+      cursor: pointer;
+    }
+
+    .slider4 {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 25px;
+      border-radius: 5px;
+      background: #d3d3d3;
+      outline: none;
+      opacity: 0.7;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+    }
+    
+    .slider4:hover {
+      opacity: 1;
+    }
+    
+    .slider4::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #4CAF50;
+      cursor: pointer;
+    }
+    
+    .slider4::-moz-range-thumb {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #4CAF50;
+      cursor: pointer;
+    }
+
+
+    label {
+  margin-right: 5px;
+}
+#msg {
+  margin-top: 10px;
+  color: red;
+  background: #eee;
+}
+    </style>
+</head>
+<body>
+  <form method="POST">
+    <div  style="align-items: center; background-color: rebeccapurple;  height: 10%;">
+        <div style="height: 25px;"></div>
+        <lable style = "font-size: 30px; margin-left: 43%;  color : #6EA6E2 ;" >Custom recipe</lable>
+        <a class="btn btn-danger" onclick = "location.href='/lastcustom'" style = " margin-left:85%; border-radius: 15px; width:10%; background-color : rgb(155, 53, 53) ; color: white; border:none; font-size:14px;font-weight: bold;" >Last Custom</a>
+        
+    </div>
+    
+    <div style=" float:left ; background-color: floralwhite; height: 69%; width: 40%; margin-left: 2%;">
+        <div style="height: 25%;"></div>
+        <div class="slidecontainer" >
+            <lable style = "font-size: 15px; color : #6EA6E2 ;" >Custom recipe1</lable>
+            <input type="range" name="p1" min="0" max="120" value="0" class="slider1" id="myRange1">
+            <label>Value: <span id="demo1"></span> ML</label>
+            
+          </div>
+
+        <div class="slidecontainer">
+            <div style="height: 5%;"></div>
+            <lable style = "font-size: 15px; color : #6EA6E2 ;" >Custom recipe2</lable>
+            <input type="range" name="p2" min="0" max="120" value="0" class="slider2" id="myRange2">
+            <label>Value: <span id="demo2"></span> Ml</label>
+        </div>
+
+        <div class="slidecontainer">
+            <div style="height: 5%;"></div>
+            <lable style = "font-size: 15px; color : #6EA6E2 ;" >Custom recipe3</lable>
+            <input type="range" name="p3" min="0" max="120" value="0" class="slider3" id="myRange3">
+            <label>Value: <span id="demo3"></span> ML</label>
+        </div>
+
+        <div class="slidecontainer">
+            <div style="height: 5%;"></div>
+            <lable style = "font-size: 15px; color : #6EA6E2 ;" >Custom recipe4</lable>
+            <input type="range" name="p4" min="0" max="120" value="0" class="slider4" id="myRange4">
+            <label>Value: <span id="demo4"></span> ML</label>
+        </div>
+    </div>
+    
+</div>
+
+    
+<div style=" float:left ; background-color: wheat; height: 69%; width: 58%;">
+    <div style="height: 15%; "></div>
+    <div style="margin-left: 10%; width: 90%" class="container">
+  <h2>Volume of glass</h2>
+  <div class="progress" style="width: 55%;">
+    <progress id="bar" class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="120"></progress>
+    
+  </div>
+  
+  <label for="min">Min value:</label><input type="text" placeholder="min value" id="min" value="0" disabled/><br/>
+  <label for="max">Max value:</label><input type="text" placeholder="max value" id="max" value="120" disabled/><br/>
+  <label for="cur">Current value:</label><input type="text" placeholder="current value" id="cur" value="" disabled/> <br/>
+  <label for="pice1">pice1 value:</label><input type="text" placeholder="current value" name = "g1" id="pice1" value="" disabled/> x1 THB<br/>
+  <label for="pice2">pice2 value:</label><input type="text" placeholder="current value" name = "g2" id="pice2" value="" disabled/> x2 THB<br/>
+  <label for="pice3">pice3 value:</label><input type="text" placeholder="current value" name = "g3" id="pice3" value="" disabled/> x3 THB<br/>
+  <label for="pice4">pice4 value:</label><input type="text" placeholder="current value" name = "g4" id="pice4" value="" disabled/> x4 THB<br/>
+  <label for="totalpice">totalpice value:</label><input type="text" placeholder="current value" id="totalpice" value="" disabled/> THB
+  
+  <input type="text"  id="in" value="" hidden/>
+  <p id="msg"></p>
+</div>
+   
+</div>
+
+<div style=" float:left ; background-color: forestgreen; height: 20%; width: 100%;" >
+
+    <div style="float:left ;  width: 50%;  margin-top: 0px; margin-left: 25px; ">
+        <a class="btn btn-danger" style = "font-family:Baloo; font-size: 15px;" href="/main" role="button">Back</a></div>
+        
+        <div style="float:left ; width: 42%;  margin-top: 0px;">   
+          <input  type="submit" data-page="3" name="next" class="next action-button" value="Submit" onclick = "location.href='/fill'" />
+         <div>
+
+</div>  
+</form>
+<script>
+var slider1 = document.getElementById("myRange1");
+var output1 = document.getElementById("demo1");
+output1.innerHTML = slider1.value;
+slider1.oninput = function() {
+    var a = document.getElementById('myRange1').value;
+    var b = document.getElementById('myRange2').value;
+    var c = document.getElementById('myRange3').value;
+    var d = document.getElementById('myRange4').value;
+    var sum = parseInt(a) + parseInt(b) + parseInt(c)+ parseInt(d);
+    var totalpice = parseInt(a)*1 + parseInt(b)*2 + parseInt(c)*3+ parseInt(d)*4;
+    output1.innerHTML = this.value;
+    document.getElementById("cur").value = parseInt(sum);
+    document.getElementById("pice1").value = parseInt(a);
+    document.getElementById("pice2").value = parseInt(b);
+    document.getElementById("pice3").value = parseInt(c);
+    document.getElementById("pice4").value = parseInt(d);
+    document.getElementById("totalpice").value = parseInt(totalpice);
+    document.getElementById("in").click() = parseInt(sum);
+}
+</script>
+
+
+<script>
+    var slider2 = document.getElementById("myRange2");
+    var output2 = document.getElementById("demo2");
+    output2.innerHTML = slider2.value;
+    slider2.oninput = function() {
+        var a = document.getElementById('myRange1').value;
+        var b = document.getElementById('myRange2').value;
+        var c = document.getElementById('myRange3').value;
+        var d = document.getElementById('myRange4').value;
+        var sum = parseInt(a) + parseInt(b) + parseInt(c)+ parseInt(d);
+        var totalpice = parseInt(a)*1 + parseInt(b)*2 + parseInt(c)*3+ parseInt(d)*4;
+      output2.innerHTML = this.value;
+      document.getElementById("cur").value = parseInt(sum);
+      document.getElementById("pice1").value = parseInt(a);
+      document.getElementById("pice2").value = parseInt(b);
+      document.getElementById("pice3").value = parseInt(c);
+      document.getElementById("pice4").value = parseInt(d);
+      document.getElementById("totalpice").value = parseInt(totalpice);
+      document.getElementById("in").click() = parseInt(sum);
+    }
+</script>
+
+
+
+<script>
+    var slider3 = document.getElementById("myRange3");
+    var output3 = document.getElementById("demo3");
+    output3.innerHTML = slider3.value;
+    slider3.oninput = function() {
+        var a = document.getElementById('myRange1').value;
+        var b = document.getElementById('myRange2').value;
+        var c = document.getElementById('myRange3').value;
+        var d = document.getElementById('myRange4').value;
+        var sum = parseInt(a) + parseInt(b) + parseInt(c)+ parseInt(d);
+        var totalpice = parseInt(a)*1 + parseInt(b)*2 + parseInt(c)*3+ parseInt(d)*4;
+        output3.innerHTML = this.value;
+        document.getElementById("cur").value = parseInt(sum);
+        document.getElementById("pice1").value = parseInt(a);
+        document.getElementById("pice2").value = parseInt(b);
+        document.getElementById("pice3").value = parseInt(c);
+        document.getElementById("pice4").value = parseInt(d);
+        document.getElementById("totalpice").value = parseInt(totalpice);
+        document.getElementById("in").click() = parseInt(sum);
+    }
+    </script>
+
+<script>
+    var slider4 = document.getElementById("myRange4");
+    var output4 = document.getElementById("demo4");
+    output4.innerHTML = slider4.value;
+    slider4.oninput = function() {
+        var a = document.getElementById('myRange1').value;
+        var b = document.getElementById('myRange2').value;
+        var c = document.getElementById('myRange3').value;
+        var d = document.getElementById('myRange4').value;
+        var sum = parseInt(a) + parseInt(b) + parseInt(c)+ parseInt(d);
+        var totalpice = parseInt(a)*1 + parseInt(b)*2 + parseInt(c)*3+ parseInt(d)*4;
+        output4.innerHTML = this.value;
+        document.getElementById("cur").value = parseInt(sum);
+        document.getElementById("pice1").value = parseInt(a);
+        document.getElementById("pice2").value = parseInt(b);
+        document.getElementById("pice3").value = parseInt(c);
+        document.getElementById("pice4").value = parseInt(d);
+        document.getElementById("totalpice").value = parseInt(totalpice);
+        document.getElementById("in").click() = parseInt(sum);
+    }
+    </script>
+
+<script>
+    $(function() {
+  var $min = $("#min"),
+      $max = $("#max"),
+      $cur = $("#cur"),
+      $msg = $("#msg"),
+      $in = $("#in"),
+      $de = $("#de");
+
+  function norm(value, min, max) {
+    return (value - min) / (max - min);
+  }
+
+  function lerp(norm, min, max) {
+    return (max - min) * norm + min;
+  }
+
+  function map(value, sourceMin, sourceMax, destMin, destMax) {
+    return lerp(norm(value, sourceMin, sourceMax), destMin, destMax);
+  }
+
+  function isInt(value) {
+    return !isNaN(value) && 
+           parseInt(Number(value)) == value && 
+           !isNaN(parseInt(value, 10));
+  }
+
+  function refresh() {
+    var min = $min.val(),
+        max = $max.val(),
+        cur = $cur.val();
+
+    if (min && max && cur) {
+      if (isInt(min) && isInt(max) && isInt(cur)) {
+        var result = map(cur, min, max, 0, 100);
+        if (result < 0) {
+          $("#bar").text("Unavailable");
+          $("#de").prop("disabled", true).css("opacity", 0.5);
+          return;
+        }  else {
+          $("#in, #de").prop("disabled", false).css("opacity", 1);
+          $("#bar").text(result + "%").css('width', result + "%");
+        }
+        $msg.hide();
+      } else {
+        $msg.text("Please input number!!!").show();
+      }
+    }
+  }
+      
+  $min.on("input", refresh);
+  $max.on("input", refresh);
+  $cur.on("input", refresh);
+  $in.on("click",  refresh);
+  $de.on("click", refresh) 
+  
+  refresh();
+  
+});
+</script>
+
+</html>
